@@ -35,9 +35,9 @@ const SignupForm = () =>
         signup();
     }
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center mt-10 mb-5">
             <form className="bg-slate-200 p-10 rounded shadow-md">
-                <h2 className="text-2xl font-bold mb-5">Sign up</h2>
+                <h2 className="text-2xl text-gray-500 font-bold mb-5">Sign up</h2>
                 <div className="mb-5">
                     <label htmlFor="name" className="block mb-2 font-bold text-gray-700">Name</label>
                     <input

@@ -22,17 +22,11 @@ const App = () =>
           <Route exact path='/' element={<HomePage />} />
           <Route exact path='/login' element={<LoginForm />} />
           <Route exact path='/signup' element={<SignupForm />} />
+          <Route exact path='/article' element={<ArticleForm />} />
           <Route exact path='*' element={<Error />} />
         </Routes>
       </BrowserRouter>
       <Footer />
-      {/* <LoginForm /> */}
-      {/* <SignupForm /> */}
-      {/* <ArticleForm /> */}
-      {/* <ArticleList /> */}
-      {/* <ArticleView /> */}
-      {/* <ArticleCard /> */}
-      {/* <CommentForm /> */}
     </>
   )
 }

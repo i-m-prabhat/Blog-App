@@ -20,13 +20,13 @@ const Nav = () =>
                             </a>
                             <a href="/login" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 <button
-                                    class="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500">
+                                    className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500">
                                     Login
                                 </button>
                             </a>
                             <a href="/signup" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                 <button
-                                    class="rounded-md bg-gray-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-gray-500">
+                                    className="rounded-md bg-gray-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-gray-500">
                                     Sign Up
                                 </button>
                             </a>
