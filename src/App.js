@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
 import ArticleForm from './components/ArticleForm'
@@ -11,13 +12,20 @@ const App = () =>
 {
   return (
     <>
-      <LoginForm />
-      <SignupForm />
-      <ArticleForm />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/login' element={<LoginForm />} />
+          <Route exact path='/signup' element={<SignupForm />} />
+        </Routes>
+      </BrowserRouter>
+
+      {/* <LoginForm /> */}
+      {/* <SignupForm /> */}
+      {/* <ArticleForm /> */}
       {/* <ArticleList /> */}
       {/* <ArticleView /> */}
       {/* <ArticleCard /> */}
-      <CommentForm />
+      {/* <CommentForm /> */}
     </>
   )
 }
