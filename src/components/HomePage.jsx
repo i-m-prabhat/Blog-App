@@ -1,59 +1,121 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import baseUrl from "../baseUrl.json"
 
 function HomePage()
 {
+    const [blogs, setBlogs] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() =>
+    {
+        axios.get(`${baseUrl.baseurl}/api/articles`).then((res) =>
+        {
+            setBlogs(res.data);
+            setIsLoading(false);
+        }).catch((err) =>
+        {
+            console.log(err.res.data.message);
+            console.log(err);
+        })
+    }, []);
+
     return (
-        <div className="bg-[#282c34]">
-            <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold mb-8">Welcome to My Blog</h1>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-lg font-bold mb-4">Blog Post 1</h2>
-                        <p className="text-gray-700">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
-                            enim nec metus vulputate elementum.
-                        </p>
+        <>
+            {isLoading ? (
+                <>
+                    <div className="bg-gradient-to-r from-gray-500 to-[#21252b] mybg h-[400px] flex justify-center items-center">
+                        <div className="max-w-md mx-auto text-center">
+                            <h1 className="text-4xl font-bold text-white mb-4">Welcome to my blog</h1>
+                            <p className="text-lg text-white mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id volutpat sapien.</p>
+                            <button className="bg-white text-blue-500 font-bold py-2 px-4 rounded-full">Learn More</button>
+                        </div>
                     </div>
-                    <div className="bg-[#202010]  rounded-lg shadow-md p-6">
-                        <h2 className="text-lg font-bold mb-4">Blog Post 2</h2>
-                        <p className="text-[#e5e7eb]">
-                            Sed auctor ante auctor sapien egestas, at fringilla lectus
-                            dapibus. Duis ac libero non dolor pretium bibendum.
-                        </p>
+                    <div className="flex justify-center items-center h-screen">
+                        <svg
+                            className="animate-spin h-5 w-5 text-gray-500"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                            ></circle>
+                            <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm12 0a8 8 0 100-16v3a5 5 0 010 10v3l-2.58-1.55A8.002 8.002 0 0012 20a8 8 0 004-1.03v-2.002A5.001 5.001 0 0116 12h4z"
+                            ></path>
+                        </svg>
                     </div>
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-lg font-bold mb-4">Blog Post 3</h2>
-                        <p className="text-gray-700">
-                            Integer euismod mauris quis elit faucibus, ut ultrices turpis
-                            euismod. Nam vel justo ac nisl luctus consectetur vitae sed
-                            magna.
-                        </p>
+                </>
+            ) : (
+                <div>
+                    <div className="bg-gradient-to-r from-gray-500 to-[#21252b] mybg h-[400px] flex justify-center items-center">
+                        <div className="max-w-md mx-auto text-center">
+                            <h1 className="text-4xl font-bold text-white mb-4">Welcome to my blog</h1>
+                            <p className="text-lg text-white mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id volutpat sapien.</p>
+                            <button className="bg-white text-blue-500 font-bold py-2 px-4 rounded-full">Learn More</button>
+                        </div>
                     </div>
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-lg font-bold mb-4">Blog Post 4</h2>
-                        <p className="text-gray-700">
-                            Nunc id dolor ut orci tempor maximus. Suspendisse at sapien sed
-                            augue pulvinar feugiat eget eu elit.
-                        </p>
+                    <div className="flex justify-center space-x-4">
+                        <button
+                            onClick={() => setSelectedCategory(null)}
+                            className={`${selectedCategory === null ? "bg-gray-700 text-white" : "bg-gray-200"
+                                } px-4 py-2 rounded-md`}
+                        >
+                            All
+                        </button>
+                        <button
+                            onClick={() => setSelectedCategory("tech")}
+                            className={`${selectedCategory === "tech" ? "bg-gray-700 text-white" : "bg-gray-200"
+                                } px-4 py-2 rounded-md`}
+                        >
+                            Tech
+                        </button>
+                        <button
+                            onClick={() => setSelectedCategory("food")}
+                            className={`${selectedCategory === "food" ? "bg-gray-700 text-white" : "bg-gray-200"
+                                } px-4 py-2 rounded-md`}
+                        >
+                            Food
+                        </button>
+                        <button
+                            onClick={() => setSelectedCategory("travel")}
+                            className={`${selectedCategory === "travel" ? "bg-gray-700 text-white" : "bg-gray-200"
+                                } px-4 py-2 rounded-md`}
+                        >
+                            Travel
+                        </button>
                     </div>
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-lg font-bold mb-4">Blog Post 5</h2>
-                        <p className="text-gray-700">
-                            Aliquam erat volutpat. Nulla facilisi. Phasellus eget efficitur
-                            tellus. Sed ut felis sit amet sapien pharetra gravida.
-                        </p>
+
+
+                    <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {blogs
+                                .filter((blog) => selectedCategory === null || blog.category === selectedCategory)
+                                .map((blog) => (
+                                    <div key={blog.id} className="bg-white rounded-lg shadow-md p-5">
+                                        <h2 className="text-lg font-bold">{blog.title}</h2>
+                                        <p className="text-gray-500 mb-2">{blog.category}</p>
+                                        <p className="text-gray-700">
+                                            {blog.content}
+                                            {blog.comments.length}
+                                        </p>
+                                        <p className="text-blue-700">{!blog.comments.length ? 0 : blog.comments.length} Comments</p>
+                                    </div>
+                                ))}
+
+                        </div>
                     </div>
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-lg font-bold mb-4">Blog Post 6</h2>
-                        <p className="text-gray-700">
-                            Maecenas a metus vitae felis tincidunt volutpat. Nullam dictum
-                            dolor at tortor hendrerit, sit amet consectetur justo
-                            ullamcorper.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </div>)};
+        </>
     );
 }
 
