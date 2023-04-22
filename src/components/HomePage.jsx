@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import baseUrl from "../baseUrl.json"
+import baseUrl from "../baseUrl.json";
+import CommentSection from "./CommentSection";
+
 
 function HomePage()
 {
     const [blogs, setBlogs] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    // const [comments, setComments] = useState([]);
+    // const [showComments, setShowComments] = useState(false);
 
     useEffect(() =>
     {
@@ -20,6 +24,8 @@ function HomePage()
             console.log(err);
         })
     }, []);
+
+
 
     return (
         <>
@@ -101,14 +107,28 @@ function HomePage()
                             {blogs
                                 .filter((blog) => selectedCategory === null || blog.category === selectedCategory)
                                 .map((blog) => (
-                                    <div key={blog.id} className="bg-white rounded-lg shadow-md p-5">
+                                    <div key={blog._id} className="bg-white rounded-lg shadow-md p-5">
                                         <h2 className="text-lg font-bold">{blog.title}</h2>
                                         <p className="text-gray-500 mb-2">{blog.category}</p>
                                         <p className="text-gray-700">
                                             {blog.content}
-                                            {blog.comments.length}
+                                            {/* {blog.author.name} */}
+                                            {/* {blog.comments.length} */}
                                         </p>
-                                        <p className="text-blue-700">{!blog.comments.length ? 0 : blog.comments.length} Comments</p>
+                                        <span className="text-blue-700">{!blog.comments.length ? 0 : blog.comments.length} Comments</span>
+                                        {/* <span className="text-blue-700 mx-5 cursor-pointer" onClick={() => handleComment(blog._id)}>Show Comments</span>
+
+                                        {showComments && (
+                                            <div className="mt-4">
+                                                {comments.map(comment => (
+                                                    <div key={comment._id} className=" rounded-lg mb-4">
+                                                        <p className="text-red-800">hello</p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )} */}
+                                        <CommentSection blog={blog._id} author={blog.author.name} />
+
                                     </div>
                                 ))}
 
