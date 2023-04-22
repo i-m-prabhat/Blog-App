@@ -25,11 +25,11 @@ function CommentSection({ blog, author })
                 <div className="mt-4">
                     {comments.map((comment, id) => (
                         <div key={id} className=" rounded-lg mb-4">
-                            <p className="text-blue-800 text-[12px]">{author}</p>
-                            <p className="text-gray-800">{comment.content}</p>
+                            <p className="text-blue-800 text-[12px]">{!comment.name ? <span>Anonymous</span> : comment.name}</p>
+                            <p className="text-gray-800">{!comment.content ? <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas porro eveniet repudiandae sit ipsa quo natus magni reprehenderit totam officia? Voluptates dignissimos delectus sunt facere autem itaque accusantium recusandae ipsam.</span> : comment.content}</p>
                         </div>
                     ))}
-                    <CommentForm />
+                    <CommentForm id={blog} />
                 </div>
             )}
         </div>

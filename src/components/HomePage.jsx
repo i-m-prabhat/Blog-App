@@ -112,21 +112,8 @@ function HomePage()
                                         <p className="text-gray-500 mb-2">{blog.category}</p>
                                         <p className="text-gray-700">
                                             {blog.content}
-                                            {/* {blog.author.name} */}
-                                            {/* {blog.comments.length} */}
                                         </p>
                                         <span className="text-blue-700">{!blog.comments.length ? 0 : blog.comments.length} Comments</span>
-                                        {/* <span className="text-blue-700 mx-5 cursor-pointer" onClick={() => handleComment(blog._id)}>Show Comments</span>
-
-                                        {showComments && (
-                                            <div className="mt-4">
-                                                {comments.map(comment => (
-                                                    <div key={comment._id} className=" rounded-lg mb-4">
-                                                        <p className="text-red-800">hello</p>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )} */}
                                         <CommentSection blog={blog._id} author={blog.author.name} />
 
                                     </div>

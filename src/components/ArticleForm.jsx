@@ -54,7 +54,7 @@ const ArticleForm = () =>
                     onChange={(e) => setTitle(e.target.value)}
                     className="border-2 border-gray-300 p-2 w-full rounded-md" />
             </div>
-            {title}
+            {/* {title} */}
             <div className="mb-5">
                 <label htmlFor="content" className="block mb-2 font-bold text-gray-700">Content</label>
                 <textarea
@@ -63,15 +63,13 @@ const ArticleForm = () =>
                     onChange={(e) => setContent(e.target.value)}
                     className="border-2 border-gray-300 p-2 w-full rounded-md"></textarea>
             </div>
-            {content}
+            {/* {content} */}
             <div className="mb-5">
                 <label htmlFor="categories" className="block mb-2 font-bold text-gray-700">Categories</label>
                 <input
                     type="text"
                     id="categories"
-                    // value={category.join(', ')}
                     name='category'
-                    // onChange={(e) => setCategories(e.target.value.split(',').map((category) => category.trim()))} className="border-2 border-gray-300 p-2 w-full rounded-md" />
                     onChange={(e) => setCategories(e.target.value)} className="border-2 border-gray-300 p-2 w-full rounded-md" />
             </div>
             {/* {categories} */}
@@ -84,7 +82,7 @@ const ArticleForm = () =>
                     onChange={(e) => setTags(e.target.value.split(',').map((tag) => tag.trim()))}
                     className="border-2 border-gray-300 p-2 w-full rounded-md" />
             </div>
-            {tags}
+            {/* {tags} */}
             <button
                 type="submit"
                 onClick={handleSubmit}
