@@ -20,6 +20,7 @@ const LoginForm = () =>
         {
             const token = response.data.token;
             localStorage.setItem('token', token);
+            localStorage.setItem('currentUser', response.data.email);
             // window.alert(`Hey You are Registerd Successfuly. Now you can Login`);
             setEmail("");
             setPassword("")
@@ -37,7 +38,6 @@ const LoginForm = () =>
         e.preventDefault();
         if (email.includes("@"))
         {
-
             redirect("/article");
         }
         login();

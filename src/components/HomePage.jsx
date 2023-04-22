@@ -9,8 +9,6 @@ function HomePage()
     const [blogs, setBlogs] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    // const [comments, setComments] = useState([]);
-    // const [showComments, setShowComments] = useState(false);
 
     useEffect(() =>
     {

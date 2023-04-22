@@ -1,5 +1,4 @@
 import React from 'react'
-import { BsFillArrowLeftSquareFill } from "react-icons/bs"
 import { Link } from 'react-router-dom'
 
 const Error = () =>
@@ -15,10 +14,6 @@ const Error = () =>
                     Sorry, we couldn't find the page you're looking for.
                 </p>
                 <div className="flex items-center justify-center mt-6 gap-x-3">
-                    {/* <button className="inline-flex items-center rounded-md border border-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-black dark:text-white">
-                        <BsFillArrowLeftSquareFill className="w-4 h-4 mr-2" />
-                        Take me Back
-                    </button> */}
 
                     <button className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500 ">
                         <Link to={"/"}>
