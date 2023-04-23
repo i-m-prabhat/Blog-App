@@ -7,18 +7,15 @@ const ArticleDashboard = () =>
 {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
-    // let currentUser = localStorage.getItem('currentUser');
 
-    // const userId = "64420f674b149b04636d683e";
-    // const articleId = "6442a05ea3a31d1ad08a29da";
     useEffect(() =>
     {
-        axios.get(`${baseUrl.baseurl}/api/articles`)
+        let userId = localStorage.getItem('userId');
+        axios.get(`${baseUrl.baseurl}/api/articles/user/${userId}`)
             .then(res =>
             {
                 setArticles(res.data);
                 setLoading(false);
-                // console.log(`${baseUrl.baseurl} / api / articles ? userId = ${currentUser}`)
             })
             .catch(err =>
             {
@@ -26,15 +23,7 @@ const ArticleDashboard = () =>
                 setLoading(false);
             });
     }, [articles]);
-    // const article = articles.find(article => article._id === articleId);
 
-    // if (article && article.author._id === userId)
-    // {
-    // console.log("The user has created this article");
-    // } else
-    // {
-    // console.log("The user has not created this article");
-    // }
     const handleDelete = (articleId) =>
     {
         if (window.confirm("Are You sure want to delete?"))

@@ -19,8 +19,10 @@ const LoginForm = () =>
         }).then((response) =>
         {
             const token = response.data.token;
+            const userId = response.data.articles[0].author;
+            console.log(response.data);
             localStorage.setItem('token', token);
-            localStorage.setItem('currentUser', response.data.email);
+            localStorage.setItem('userId', userId);
 
             setEmail("");
             setPassword("")
