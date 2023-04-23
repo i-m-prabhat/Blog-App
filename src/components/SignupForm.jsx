@@ -11,24 +11,49 @@ const SignupForm = () =>
     const [error, setError] = useState('');
     const redirect = useNavigate();
 
-    const signup = () =>
+    const signup = async () =>
     {
-        axios.post(`${baseUrl.baseurl}/api/signup`, {
-            name, email, password
-        }).then((response) =>
+        try
         {
-            window.alert(`Hey You are Registerd Successfuly. Now you can Login`);
+            const response = await axios.post(`${baseUrl.baseurl}/api/signup`, {
+                name,
+                email,
+                password,
+            });
+
+            // creating a sample article
+            const token = response.data.token;
+            const articleResponse = await axios.post(
+                `${baseUrl.baseurl}/api/articles`,
+                {
+                    title: "Sample Article Title",
+                    content: "This is a sample article content.",
+                    category: "Technology",
+                    tags: ["sample", "demo", "article"],
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: token,
+                    },
+                }
+            );
+
+            console.log(articleResponse.data.message);
+
+            window.alert("Hey You are Registered Successfully. Now you can Login");
             setName("");
             setEmail("");
-            setPassword("")
+            setPassword("");
             setError("");
-            console.log(response.data.message)
             redirect("/login");
-        }).catch((error) =>
+            localStorage.setItem("isFirstTimeLogin", null);
+        } catch (error)
         {
             setError(error.response.data.message);
-        })
-    }
+        }
+    };
+
     const handleSignup = (e) =>
     {
         e.preventDefault();

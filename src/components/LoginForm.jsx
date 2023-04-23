@@ -12,40 +12,34 @@ const LoginForm = () =>
     const [msg, setMsg] = useState('');
     const redirect = useNavigate();
 
-    const login = () =>
+    const handleLogin = async (email, password) =>
     {
-        axios.post(`${baseUrl.baseurl}/api/login`, {
-            email, password
-        }).then((response) =>
+        try
         {
-            const token = response.data.token;
-            const userId = response.data.articles[0].author;
-            console.log(response.data);
+            const response = await axios.post(`${baseUrl.baseurl}/api/login`, {
+                email,
+                password
+            });
+            console.log(response);
+            const { token, articles, message } = response.data;
+            console.log(token, articles, message);
             localStorage.setItem('token', token);
-            localStorage.setItem('userId', userId);
-
-            setEmail("");
-            setPassword("")
-            setError("");
-            // console.log(response.data.message)
+            localStorage.setItem('userId', articles[0].author);
+            console.log(message);
             setMsg(response.data.message);
             if (email.includes("@"))
             {
                 window.alert("Congratulation You Are Login Successfully, you are redirected to dashboard");
                 redirect("/article/dash");
             }
-            // redirect("/");
-        }).catch((error) =>
-        {
-            setError(error.response.data.message);
-        })
-    }
-    const handleLogin = (e) =>
-    {
-        e.preventDefault();
 
-        login();
+        } catch (error)
+        {
+            console.log(error.response.data.message);
+
+        }
     }
+
     return (
         <div className="flex justify-center items-center mb-[120px] mt-8">
             <form className="bg-slate-200 p-10 rounded shadow-md">
@@ -73,7 +67,12 @@ const LoginForm = () =>
                 </div>
                 <button
                     className="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-300"
-                    onClick={handleLogin}
+                    onClick={(e) =>
+                    {
+                        e.preventDefault()
+                        handleLogin(email, password)
+                    }
+                    }
                 >Login</button>
                 {error && <p className="text-[15px] mt-3 text-red-700 font-bold">{error}</p>}
                 <p className="text-sm mt-3">Don't have an account?
