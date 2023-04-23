@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Mini Blog Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack web application built using the MERN stack (MongoDB, Express.js, React, and Node.js) that allows users to create, publish, and manage blog posts/Article.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+To run the application locally, you'll need to have the following installed:
 
-### `npm start`
+Node.js <br/>
+MongoDB <br/>
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### <a href="https://github.com/i-m-prabhat/Blog-App-backend.git">Click here to go >Blog App Backend  Repo</a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone this repository: git clone `https://github.com/i-m-prabhat/Blog-App.git` <br/>
+2. Install dependencies: `npm install` <br/>
+3. Start the server: `npm start` <br/>
+4. Start the client: `cd client && npm start` <br/>
+5. Open your browser and navigate to `http://localhost:3000` <br/>
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. User authentication using JWT <br/>
+2. Create, edit, and delete blog posts
+3. Comment on blog posts
+5. Responsive design
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. MongoDB
+2. Express.js
+3. React
+4. Node.js
+5. JWT
+6. Tailwind CSS
+7. Axios
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features and Tools
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tech Stack
 
-### `npm run eject`
+<b>Frontend </b>: React.js, Redux.js, Axios.js, Tailwind CSS <br/>
+<b>Backend</b>: Node.js, Express.js, MongoDB
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Login/Signup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User can sign up and log in to the application using their email and password.
+Passwords are hashed and salted before storing in the database for security.
+User session is stored using JSON Web Tokens (JWT) for authentication and authorization.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 2. Create Articles
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Logged in users can create new articles by providing a title, content, categories, and tags.
+Each article is associated with the user who created it and a unique identifier is assigned to it for database management.
 
-## Learn More
+### 3. View List of All Articles
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Users can view a list of all the articles on the blog Home page.
+Articles are displayed with the title, category, tags, and the number of comments.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Edit/Delete Articles
 
-### Code Splitting
+Users can edit or delete their own articles.
+Editing an article updates its title, content, categories, and tags.
+Deleting an article also deletes all the comments associated with it.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 5. Categories, Tags, and Filters
 
-### Analyzing the Bundle Size
+Users can add categories and tags to their articles for better organization and searchability.
+The blog page has filter options to display articles by category or tag.
+Users can also search for articles using keywords.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 6. Comments
 
-### Making a Progressive Web App
+Users can add comments to articles.
+Each comment is associated with the user who posted it and the article it is posted on.
+The total number of comments for each article is displayed on the blog page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 7. MongoDB Database
 
-### Advanced Configuration
+MongoDB is used as the backend database to store user information, articles, and comments.
+Articles and comments are stored in separate collections, and the user collection is linked to them.
+Data is accessed and manipulated using MongoDB's official Node.js driver and Mongoose.js, an Object Data Modeling (ODM) library for MongoDB.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## SnapShots
