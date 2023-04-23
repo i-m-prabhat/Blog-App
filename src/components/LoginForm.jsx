@@ -21,12 +21,17 @@ const LoginForm = () =>
             const token = response.data.token;
             localStorage.setItem('token', token);
             localStorage.setItem('currentUser', response.data.email);
-            // window.alert(`Hey You are Registerd Successfuly. Now you can Login`);
+
             setEmail("");
             setPassword("")
             setError("");
             // console.log(response.data.message)
             setMsg(response.data.message);
+            if (email.includes("@"))
+            {
+                window.alert("Congratulation You Are Login Successfully, you are redirected to dashboard");
+                redirect("/article/dash");
+            }
             // redirect("/");
         }).catch((error) =>
         {
@@ -36,10 +41,7 @@ const LoginForm = () =>
     const handleLogin = (e) =>
     {
         e.preventDefault();
-        if (email.includes("@"))
-        {
-            redirect("/article");
-        }
+
         login();
     }
     return (

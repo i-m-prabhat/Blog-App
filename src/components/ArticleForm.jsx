@@ -29,7 +29,7 @@ const ArticleForm = () =>
         }).then((response) =>
         {
             console.log(response.data.message)
-            // redirect("/");
+            redirect("/article/dash");
         }).catch((error) =>
         {
             console.error(error.response.data.message);
@@ -44,7 +44,10 @@ const ArticleForm = () =>
 
     return (
         <form className="bg-white p-5 rounded shadow-md">
-            <h2 className="text-2xl font-bold mb-5">Create an article</h2>
+            <span className="text-2xl font-bold mb-5">Create an article</span>
+            <Link to={"/article/dash"}>
+                <span className="text-xl font-bold mb-4  w-[200px] mt-2 flex bg-gray-600 p-2 border-none text-gray-200 hover:bg-blue-800 cursor-pointer rounded-md">Back to Dashboard</span>
+            </Link>
             <div className="mb-5">
                 <label htmlFor="title" className="block mb-2 font-bold text-gray-700">Title</label>
                 <input

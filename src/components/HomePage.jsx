@@ -107,7 +107,7 @@ function HomePage()
                                 .map((blog) => (
                                     <div key={blog._id} className="bg-white rounded-lg shadow-md p-5">
                                         <h2 className="text-lg font-bold">{blog.title}</h2>
-                                        <p className="text-gray-500 mb-2">{blog.category}</p>
+                                        <p className="text-gray-500 mb-2"><b>Category: </b>{blog.category}</p>
                                         <p className="text-gray-700">
                                             {blog.content}
                                         </p>

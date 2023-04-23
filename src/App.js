@@ -8,6 +8,7 @@ import Nav from './components/Nav'
 import Error from './components/Error'
 import Footer from './components/Footer'
 import ArticleDashboard from "./components/ArticleDashboard";
+import EditArticle from './components/EditArticle'
 
 const App = () =>
 {
@@ -20,6 +21,7 @@ const App = () =>
           <Route exact path='/login' element={<LoginForm />} />
           <Route exact path='/signup' element={<SignupForm />} />
           <Route exact path='/article' element={<ArticleForm />} />
+          <Route exact path='/api/articles/:id' element={<EditArticle />} />
           <Route exact path='/article/dash' element={<ArticleDashboard />} />
           <Route exact path='*' element={<Error />} />
         </Routes>
