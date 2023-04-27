@@ -57,7 +57,6 @@ const ArticleForm = () =>
                     onChange={(e) => setTitle(e.target.value)}
                     className="border-2 border-gray-300 p-2 w-full rounded-md" />
             </div>
-            {/* {title} */}
             <div className="mb-5">
                 <label htmlFor="content" className="block mb-2 font-bold text-gray-700">Content</label>
                 <textarea
@@ -66,7 +65,6 @@ const ArticleForm = () =>
                     onChange={(e) => setContent(e.target.value)}
                     className="border-2 border-gray-300 p-2 w-full rounded-md"></textarea>
             </div>
-            {/* {content} */}
             <div className="mb-5">
                 <label htmlFor="categories" className="block mb-2 font-bold text-gray-700">Categories</label>
                 <input
@@ -75,7 +73,6 @@ const ArticleForm = () =>
                     name='category'
                     onChange={(e) => setCategories(e.target.value)} className="border-2 border-gray-300 p-2 w-full rounded-md" />
             </div>
-            {/* {categories} */}
             <div className="mb-5">
                 <label htmlFor="tags" className="block mb-2 font-bold text-gray-700">Tags</label>
                 <input
@@ -85,7 +82,6 @@ const ArticleForm = () =>
                     onChange={(e) => setTags(e.target.value.split(',').map((tag) => tag.trim()))}
                     className="border-2 border-gray-300 p-2 w-full rounded-md" />
             </div>
-            {/* {tags} */}
             <button
                 type="submit"
                 onClick={handleSubmit}

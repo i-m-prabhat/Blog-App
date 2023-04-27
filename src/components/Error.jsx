@@ -15,11 +15,11 @@ const Error = () =>
                 </p>
                 <div className="flex items-center justify-center mt-6 gap-x-3">
 
-                    <button className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500 ">
-                        <Link to={"/"}>
+                    <Link to="/">
+                        <button className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500 ">
                             Go Home
-                        </Link>
-                    </button>
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

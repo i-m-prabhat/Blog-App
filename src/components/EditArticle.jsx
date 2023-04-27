@@ -23,10 +23,7 @@ const EditArticle = () =>
 
     const onValueChange = (e) =>
     {
-        // console.log(e);
-        // console.log(e.target.value);
         setData({ ...data, [e.target.name]: e.target.value });
-        // console.log(data);
     }
 
 
@@ -34,7 +31,6 @@ const EditArticle = () =>
     {
         e.preventDefault();
         let token = localStorage.getItem('token');
-        // console.log(token);
         axios.put(`${baseUrl.baseurl}/api/articles/${id}`, data, {
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +65,6 @@ const EditArticle = () =>
                     onChange={(e) => onValueChange(e)}
                     className="border-2 border-gray-300 p-2 w-full rounded-md" />
             </div>
-            {/* {title} */}
             <div className="mb-5">
                 <label htmlFor="content" className="block mb-2 font-bold text-gray-700">Content</label>
                 <textarea
@@ -79,7 +74,6 @@ const EditArticle = () =>
                     onChange={(e) => onValueChange(e)}
                     className="border-2 border-gray-300 p-2 w-full rounded-md"></textarea>
             </div>
-            {/* {content} */}
             <div className="mb-5">
                 <label htmlFor="categories" className="block mb-2 font-bold text-gray-700">Categories</label>
                 <input
@@ -90,7 +84,6 @@ const EditArticle = () =>
                     onChange={(e) => onValueChange(e)}
                     className="border-2 border-gray-300 p-2 w-full rounded-md" />
             </div>
-            {/* {categories} */}
             <div className="mb-5">
                 <label htmlFor="tags" className="block mb-2 font-bold text-gray-700">Tags</label>
                 <input
@@ -98,11 +91,9 @@ const EditArticle = () =>
                     id="tags"
                     name='tags'
                     value={tags}
-                    // onChange={(e) => setTags(e.target.value.split(',').map((tag) => tag.trim()))}
                     onChange={(e) => onValueChange(e)}
                     className="border-2 border-gray-300 p-2 w-full rounded-md" />
             </div>
-            {/* {tags} */}
             <button
                 type="submit"
                 onClick={handleSubmit}

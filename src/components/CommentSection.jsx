@@ -3,14 +3,13 @@ import axios from "axios";
 import baseUrl from "../baseUrl.json";
 import CommentForm from "./CommentForm";
 
-function CommentSection({ blog, author })
+function CommentSection({ blog })
 {
     const [comments, setComments] = useState([]);
     const [showComments, setShowComments] = useState(false);
 
     const handleComment = (id) =>
     {
-        // console.log(id);
         axios.get(`${baseUrl.baseurl}/api/articles/${id}/comments`)
             .then(response => setComments(response.data))
             .catch(error => console.log(error));

@@ -20,7 +20,6 @@ const CommentForm = ({ id }) =>
         }).then((response) =>
         {
             console.log(response.data.message)
-            // redirect("/");
         }).catch((error) =>
         {
             console.error(error.response.data.message);

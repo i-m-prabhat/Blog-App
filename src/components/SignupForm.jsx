@@ -73,7 +73,6 @@ const SignupForm = () =>
                         required
                         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" />
                 </div>
-                {/* {name} */}
                 <div className="mb-5">
                     <label htmlFor="email" className="block mb-2 font-bold text-gray-700">Email</label>
                     <input
@@ -95,7 +94,6 @@ const SignupForm = () =>
                         required
                         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" />
                 </div>
-                {/* {password} */}
                 <button
                     className="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-300"
                     onClick={handleSignup}
