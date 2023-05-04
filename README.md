@@ -83,3 +83,41 @@ Articles and comments are stored in separate collections, and the user collectio
 Data is accessed and manipulated using MongoDB's official Node.js driver and Mongoose.js, an Object Data Modeling (ODM) library for MongoDB.
 
 ## SnapShots
+
+Home Page
+![Screenshot (307)](https://user-images.githubusercontent.com/117756490/233847072-7dd9629e-d953-4747-adc6-7318e779921d.png)
+
+Filter By Category
+![Screenshot (308)](https://user-images.githubusercontent.com/117756490/233847073-5fe57fae-4ab3-425b-8df0-795bb45c9a83.png)
+![Screenshot (309)](https://user-images.githubusercontent.com/117756490/233847077-9a14b8f0-9681-42e9-a605-81c460990f89.png)
+
+Comment Form
+![Screenshot (310)](https://user-images.githubusercontent.com/117756490/233847079-81d065e2-8ae9-4e64-abc2-c12dcd6ca543.png)
+
+User Signup
+![Screenshot (312)](https://user-images.githubusercontent.com/117756490/233847083-77599c8c-1d82-4cc5-808e-be6a329812fd.png)
+
+User Login
+![Screenshot (311)](https://user-images.githubusercontent.com/117756490/233847081-9f4f44eb-5d10-48bc-b24b-4d4548663756.png)
+
+Create Article
+![Screenshot (302)](https://user-images.githubusercontent.com/117756490/233847063-4c68b51b-f57f-46a3-950a-8771f748e66c.png)
+
+Article Dashboard of user
+![Screenshot (303)](https://user-images.githubusercontent.com/117756490/233847066-7b774468-9ef4-4f91-a679-7f0afe1f3479.png)
+
+Article Update
+![Screenshot (304)](https://user-images.githubusercontent.com/117756490/233847068-9fdb9fbf-7d19-458e-b78d-720788886d10.png)
+
+Article Delete 
+![Screenshot (305)](https://user-images.githubusercontent.com/117756490/233847069-9c10bb92-6d30-429b-81c6-4522ea5d778d.png)
+
+Article deleted
+![Screenshot (306)](https://user-images.githubusercontent.com/117756490/233847070-25d9c099-9e32-4c88-93c5-5c592df0188c.png)
+
+
+404 Page Not Found
+![Screenshot (313)](https://user-images.githubusercontent.com/117756490/233847084-f3c3d8e9-02ce-400d-ac2d-d3e9fb3fbfa4.png)
+
+
+Made with 💘 by Prabhat
